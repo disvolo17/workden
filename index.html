@@ -1,1003 +1,210 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<style> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Денис Волошин — Project Manager</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Денис Волошин — Project Manager</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== БАЗА ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+img, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===== CONTACTS FIX ===== */
+
 .contacts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-/* планшеты */
+/* планшет */
 @media (max-width: 900px) {
     .contacts-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* телефоны */
+/* телефон */
 @media (max-width: 600px) {
     .contacts-grid {
         grid-template-columns: 1fr;
     }
 }
 
-.contact-card {
-    width: 100%;
-    min-width: 0;
-    padding: 20px;
-}
-
-.contact-card p,
-.contact-card a {
-    word-break: break-word;
-    overflow-wrap: break-word;
-}
-
-    min-height: 140px;
-    padding: 20px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    border-radius: 20px;
-}
-.contact-card {
-    width: 100%;
-    min-width: 0;
-}
-
-/* фикс ТОЛЬКО для текста */
-.contact-card p,
-.contact-card a {
-    word-break: break-word;
-    overflow-wrap: break-word;
-}
-    <style>
-        /* ===== FIX ЧТОБЫ НЕ ЕХАЛО ===== */
-
- * {
-  box-sizing: border-box;
-}
-}
-
-html, body {
-  overflow-x: hidden;
-}
-
-.main-content {
-  padding: 60px 40px !important;
-}
-
-/* убираем запрет на перенос */
-.artist-tag {
-  white-space: normal !important;
-}
-
-/* если есть длинные строки/теги */
-div, span {
-  max-width: 100%;
-}
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #0a1628;
-            --secondary: #111d32;
-            --accent: #ff6b4a;
-            --accent-glow: rgba(255, 107, 74, 0.3);
-            --text-primary: #ffffff;
-            --text-secondary: #8a9bb8;
-            --text-muted: #5a6a85;
-            --border: #1e3a5f;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
-            min-height: 100vh;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            background: var(--secondary);
-            padding: 60px 40px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .sidebar::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 70%, var(--accent-glow) 0%, transparent 50%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        .profile-section {
-            position: relative;
-            z-index: 1;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .name {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #fff 0%, #8a9bb8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .title {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--accent);
-        }
-
-        .skills-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-bottom: 50px;
-        }
-
-        .skill-item {
-            padding: 15px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .skill-item:hover {
-            border-color: var(--accent);
-            background: rgba(255, 107, 74, 0.05);
-        }
-
-        .skill-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-
-        .skill-desc {
-            font-size: 12px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 60px 60px 60px 80px;
-            position: relative;
-        }
-
-        .main-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-            opacity: 0.3;
-        }
-
-        .hero-section {
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .hero-label {
-            display: inline-block;
-            padding: 8px 20px;
-            background: var(--accent);
-            color: white;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 30px;
-            margin-bottom: 25px;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 0 10px var(--accent-glow); }
-            to { box-shadow: 0 0 30px var(--accent-glow), 0 0 60px var(--accent-glow); }
-        }
-
-        .hero-text {
-            font-size: 20px;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            font-weight: 300;
-            max-width: 600px;
-        }
-
-        .hero-text strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        /* Stats */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .stat-card {
-            background: var(--secondary);
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .stat-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 800;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 10px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .stat-label {
-            font-size: 13px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Experience */
-        .experience-section {
-            margin-bottom: 50px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .section-header h2 {
-            font-size: 32px;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .section-line {
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, var(--border), transparent);
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--accent), transparent);
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-bottom: 40px;
-            padding-left: 40px;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -36px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            background: var(--accent);
-            border-radius: 50%;
-            border: 3px solid var(--primary);
-            box-shadow: 0 0 0 3px var(--accent);
-        }
-
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 15px;
-        }
-
-        .company-name {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .position-title {
-            font-size: 16px;
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .date-badge {
-            padding: 8px 16px;
-            background: rgba(255,107,74,0.1);
-            color: var(--accent);
-            font-size: 13px;
-            font-weight: 600;
-            border-radius: 20px;
-            border: 1px solid rgba(255,107,74,0.3);
-        }
-
-        .timeline-content {
-            color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.8;
-        }
-
-        .timeline-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .timeline-content li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-        }
-
-        .timeline-content li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Artists Section */
-        .artists-section {
-            background: var(--secondary);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .artists-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,107,74,0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .artists-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .artist-tag {
-            padding: 12px 20px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            display: block;
-        }
-
-        .artist-tag:hover {
-            border-color: var(--accent);
-            background: rgba(255, 107, 74, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 107, 74, 0.2);
-            color: var(--accent);
-        }
-
-        /* Events */
-        .events-section {
-            background: var(--secondary);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            margin-bottom: 40px;
-        }
-
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .event-card {
-            padding: 25px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .event-card:hover {
-            border-color: var(--accent);
-            transform: scale(1.02);
-        }
-
-        .event-year {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-
-        .event-name {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .event-role {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        /* Contacts Section - Full Width at Bottom */
-        .contacts,
-.contact,
 .contact-item {
-  min-width: 0;
-  max-width: 100%;
+    min-width: 0;
 }
 
-.contacts a,
-.contact a {
-  word-break: break-word;
-  overflow-wrap: break-word;
+.contact-text {
+    overflow: hidden;
 }
 
-/* если используется flex */
-.contacts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-        .contacts-section {
-            background: var(--secondary);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            margin-top: 40px;
-        }
-
-        .contacts-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px 12px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            min-height: 70px;
-        }
-
-        .contact-item:hover {
-            border-color: var(--accent);
-            background: rgba(255, 107, 74, 0.05);
-        }
-
-        .contact-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--accent);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            flex-shrink: 0;
-        }
-
-        .contact-icon svg {
-            width: 18px;
-            height: 18px;
-            fill: white;
-        }
-
-        .contact-text {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.3;
-            overflow: hidden;
-        }
-
-        .contact-text strong {
-            color: var(--text-primary);
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* Print styles */
-        @media print {
-            body {
-                background: white;
-                color: black;
-            }
-            .container {
-                grid-template-columns: 300px 1fr;
-            }
-            .sidebar {
-                background: #f5f5f5 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .skill-item:hover, .contact-item:hover, .stat-card:hover, .event-card:hover, .artist-tag:hover {
-                transform: none;
-                box-shadow: none;
-            }
-            .hero-label {
-                animation: none;
-            }
-            .contacts-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-            }
-            .artists-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-            }
-        }
-
-        /* Mobile styles */
-        @media (max-width: 1200px) {
-            .contacts-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 900px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            .sidebar {
-                padding: 40px 30px;
-                text-align: left;
-            }
-            .main-content {
-                padding: 40px 30px;
-            }
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            .events-grid {
-                grid-template-columns: 1fr;
-            }
-            .artists-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .contacts-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .contacts-section {
-                padding: 30px;
-            }
-            .timeline-header {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .date-badge {
-                align-self: flex-start;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .artists-grid {
-                grid-template-columns: 1fr;
-            }
-            .contacts-grid {
-                grid-template-columns: 1fr;
-            }
-            .name {
-                font-size: 36px;
-            }
-            .hero-text {
-                font-size: 18px;
-            }
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-            .section-line {
-                width: 100%;
-            }
-        }
-    .container {
-  width: 100%;
-  overflow: hidden;
+.contact-text strong {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.main-content {
-  padding: 60px 40px !important;
-  min-width: 0;
+.contact-text,
+.contact-text a {
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
+
+/* ===== ТВОЙ ДИЗАЙН ===== */
+
+:root {
+    --primary: #0a1628;
+    --secondary: #111d32;
+    --accent: #ff6b4a;
+    --text-primary: #ffffff;
+    --text-secondary: #8a9bb8;
+    --border: #1e3a5f;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--primary);
+    color: var(--text-primary);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+}
+
+/* SIDEBAR */
 
 .sidebar {
-  min-width: 0;
+    background: var(--secondary);
+    padding: 60px 40px;
 }
 
-/* фикс для grid */
-.container > * {
-  min-width: 0;
+.name {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 10px;
 }
 
-/* чтобы ничего не вылазило */
-img, svg {
-  max-width: 100%;
-  height: auto;
+.title {
+    color: var(--accent);
+    margin-bottom: 40px;
 }
-    </style>
-<base target="_blank">
+
+/* MAIN */
+
+.main-content {
+    padding: 60px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* CONTACTS */
+
+.contacts-section {
+    background: var(--secondary);
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: 40px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="profile-section">
-                <h1 class="name">Денис<br>Волошин</h1>
-                <div class="title">Project Manager</div>
 
-                <div class="section-title">Ключевые навыки</div>
-                <div class="skills-list">
-                    <div class="skill-item">
-                        <div class="skill-name">Планирование и системность</div>
-                        <div class="skill-desc">Умение разбивать проект на этапы, ставить дедлайны и держать структуру. Без этого всё разваливается.</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Коммуникация</div>
-                        <div class="skill-desc">Четко доносить задачи, договариваться, синхронизировать команду и клиента. 80% работы ПМа — это разговоры.</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Управление рисками</div>
-                        <div class="skill-desc">Заранее видеть, где может пойти жопа, и иметь план B (а лучше C).</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Приоритизация</div>
-                        <div class="skill-desc">Понимать, что важно сейчас, а что можно отложить. Не тонуть в задачах.</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Ответственность за результат</div>
-                        <div class="skill-desc">Не «я передал задачу», а «я довел проект до результата». Полное владение процессом.</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Построение логистики</div>
-                        <div class="skill-desc">Организация маршрутов, транспорта и размещения для команд и артистов в многогородских турах.</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Координация команд</div>
-                        <div class="skill-desc">Синхронизация работы технических групп, подрядчиков и артистов на всех этапах проекта.</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Контроль мероприятий</div>
-                        <div class="skill-desc">Полный цикл управления: от планирования до закрытия проекта на площадке.</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Стрессоустойчивость</div>
-                        <div class="skill-desc">Сохранять хладнокровие в критических ситуациях и принимать быстрые решения под давлением.</div>
-                    </div>
-                </div>
-            </div>
-        </aside>
+<div class="container">
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="hero-section">
-                <div class="hero-label">Профессиональный профиль</div>
-                <p class="hero-text">
-                    <strong>Project Manager</strong> с опытом управления гастрольными турами и крупными музыкальными проектами федерального уровня. Полный цикл тур-менеджмента, логистика и координация. Работа с артистами топ-уровня.
-                </p>
-            </div>
+<aside class="sidebar">
+    <h1 class="name">Денис Волошин</h1>
+    <div class="title">Project Manager</div>
+</aside>
 
-            <!-- Stats -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Гастрольных туров</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">36+</div>
-                    <div class="stat-label">Городов</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">200+</div>
-                    <div class="stat-label">Концертов организовано/div>
-                </div>
-            </div>
+<main class="main-content">
 
-            <!-- Experience -->
-            <div class="experience-section">
-                <div class="section-header">
-                    <h2>Опыт работы</h2>
-                    <div class="section-line"></div>
-                </div>
+<div class="stats-grid">
+    <div>15+ туров</div>
+    <div>36+ городов</div>
+    <div>200+ концертов</div>
+</div>
 
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-header">
-                            <div>
-                                <div class="company-name">SOLDOUT</div>
-                                <div class="position-title">Project Manager</div>
-                            </div>
-                            <div class="date-badge">2024 — 2025</div>
-                        </div>
-                        <div class="timeline-content">
-                            <ul>
-                                <li>Управление турами — полный цикл организации гастролей</li>
-                                <li>Планирование маршрутов и оптимизация логистических процессов</li>
-                                <li>Бронирование авиа, ЖД и отелей для команд и артистов</li>
-                                <li>Координация команд и подрядчиков на всех этапах проекта</li>
-                                <li>Контроль проведения мероприятий в 36+ городах</li>
-                            </ul>
-                        </div>
-                    </div>
+<div class="contacts-section">
+    <h2>Контакты</h2>
 
-                    <div class="timeline-item">
-                        <div class="timeline-header">
-                            <div>
-                                <div class="company-name">NEBO RECORDS</div>
-                                <div class="position-title">Project Manager</div>
-                            </div>
-                            <div class="date-badge">2023 — 2024</div>
-                        </div>
-                        <div class="timeline-content">
-                            <ul>
-                                <li>Организация гастрольных туров артистов лейбла</li>
-                                <li>Логистическое сопровождение мероприятий</li>
-                                <li>Работа с артистами и техническими командами</li>
-                                <li>Координация выступлений на федеральных площадках</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="contacts-grid">
 
-            <!-- Artists Section -->
-            <div class="artists-section">
-                <div class="section-header">
-                    <h2>Артисты</h2>
-                    <div class="section-line"></div>
-                </div>
-                <div class="artists-grid">
-                    <div class="artist-tag">БАСТА</div>
-                    <div class="artist-tag">ЗВЕРИ</div>
-                    <div class="artist-tag">MACAN</div>
-                    <div class="artist-tag">ПОЛИНА ГАГАРИНА</div>
-                    <div class="artist-tag">ЕГОР КРИД</div>
-                    <div class="artist-tag">SALUKI</div>
-                    <div class="artist-tag">JAKONE & AVG</div>
-                    <div class="artist-tag">AKMAL'</div>
-                    <div class="artist-tag">тринадцать карат</div>
-                    <div class="artist-tag">три дня дождя</div>
-                    <div class="artist-tag">ПАПИН ОЛИМПОС</div>
-                    <div class="artist-tag">Даниил Ким</div>
-                </div>
-            </div>
+        <a href="tel:+79999753423" class="contact-item">
+            📱 Телефон
+        </a>
 
-            <!-- Major Events -->
-            <div class="events-section">
-                <div class="section-header">
-                    <h2>Крупные мероприятия</h2>
-                    <div class="section-line"></div>
-                </div>
+        <a href="mailto:disvolo@bk.ru" class="contact-item">
+            ✉️ Email
+        </a>
 
-                <div class="events-grid">
-                    <div class="event-card">
-                        <div class="event-year">2023</div>
-                        <div class="event-name">VK Fest</div>
-                        <div class="event-role">Project Manager</div>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-year">2024</div>
-                        <div class="event-name">MTS Live Summer</div>
-                        <div class="event-role">Project Manager</div>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-year">2023</div>
-                        <div class="event-name">День города «Нижний Новгород»</div>
-                        <div class="event-role">Project Manager</div>
-                    </div>
-                </div>
-            </div>
+        <a href="https://vk.com/disvolo" class="contact-item">
+            VK
+        </a>
 
-            <!-- Contacts Section - Moved to Bottom -->
-            <div class="contacts-section">
-                <div class="section-header">
-                    <h2>Контакты</h2>
-                    <div class="section-line"></div>
-                </div>
-                <div class="contacts-grid">
-                    <a href="tel:+79999753423" class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div class="contact-text">
-                            <strong>Телефон</strong>
-                            +7 (999) 975-34-23
-                        </div>
-                    </a>
-                    <a href="mailto:disvolo@bk.ru" class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-text">
-                            <strong>Email</strong>
-                            disvolo@bk.ru
-                        </div>
-                    </a>
-                    <a href="https://vk.com/disvolo" target="_blank" class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.585-1.496c.598-.19 1.365 1.26 2.18 1.817.616.423 1.084.33 1.084.33l2.177-.03s1.14-.071.599-.97c-.044-.074-.314-.66-1.617-1.867-1.364-1.261-1.182-1.057.462-3.238.998-1.332 1.397-2.146 1.273-2.494-.12-.334-.858-.246-.858-.246l-2.453.015s-.182-.025-.316.056c-.132.08-.217.267-.217.267s-.39 1.037-.91 1.92c-1.096 1.86-1.534 1.96-1.715 1.842-.418-.27-.314-1.085-.314-1.663 0-1.808.274-2.564-.534-2.76-.268-.066-.464-.11-1.15-.117-.876-.01-1.618.003-2.038.209-.28.14-.495.452-.363.47.162.023.53.1.726.364.252.34.243 1.103.243 1.103s.145 2.13-.34 2.395c-.333.182-.79-.19-1.77-1.893-.502-.87-.882-1.83-.882-1.83s-.073-.18-.203-.276c-.158-.12-.38-.157-.38-.157l-2.338.016s-.352.01-.48.163c-.116.14-.01.428-.01.428s1.834 4.291 3.91 6.453c1.903 1.982 4.064 1.849 4.064 1.849h.978z"/>
-                            </svg>
-                        </div>
-                        <div class="contact-text">
-                            <strong>VK</strong>
-                            vk.com/disvolo
-                        </div>
-                    </a>
-                    <a href="https://t.me/disvolo" target="_blank" class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                            </svg>
-                        </div>
-                        <div class="contact-text">
-                            <strong>Telegram</strong>
-                            @disvolo
-                        </div>
-                    </a>
-                    <a href="https://instagram.com/disvolo" target="_blank" class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
-                            </svg>
-                        </div>
-                        <div class="contact-text">
-                            <strong>Instagram</strong>
-                            @disvolo
-                        </div>
-                    </a>
-                    <a href="https://max.ru/u/f9LHodD0cOKm8NdyFeNWG1uXUCAhi3-iJa25liAq7InaLx-5A31O7lKHfso" target="_blank" class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                            </svg>
-                        </div>
-                        <div class="contact-text">
-                            <strong>Max</strong>
-                            Написать в мессенджер
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </main>
+        <a href="https://t.me/disvolo" class="contact-item">
+            Telegram
+        </a>
+
+        <a href="https://instagram.com/disvolo" class="contact-item">
+            Instagram
+        </a>
+
+        <a href="#" class="contact-item">
+            Max
+        </a>
+
     </div>
+</div>
+
+</main>
+</div>
+
 </body>
 </html>
