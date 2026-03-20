@@ -8,13 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 .contacts-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.contacts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 в ряд */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
@@ -30,6 +24,18 @@
     .contacts-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.contact-card {
+    width: 100%;
+    min-width: 0;
+    padding: 20px;
+}
+
+.contact-card p,
+.contact-card a {
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
     min-height: 140px;
@@ -56,8 +62,6 @@
     <style>
         /* ===== FIX ЧТОБЫ НЕ ЕХАЛО ===== */
 
-* {
-  max-width: 100%;
  * {
   box-sizing: border-box;
 }
