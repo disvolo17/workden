@@ -12,18 +12,24 @@
     gap: 20px;
 }
 
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 в ряд */
+    gap: 20px;
+}
+
 /* планшеты */
 @media (max-width: 900px) {
     .contacts-grid {
         grid-template-columns: repeat(2, 1fr);
-}
+    }
 }
 
 /* телефоны */
 @media (max-width: 600px) {
     .contacts-grid {
         grid-template-columns: 1fr;
-}
+    }
 }
 
 .contact-card {
@@ -31,6 +37,7 @@
     min-width: 0;
 }
 
+/* фикс ТОЛЬКО для текста */
 .contact-card p,
 .contact-card a {
     word-break: break-word;
